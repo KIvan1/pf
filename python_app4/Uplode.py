@@ -1,0 +1,3 @@
+
+def Puts():
+    print("helo")
