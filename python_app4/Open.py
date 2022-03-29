@@ -1,12 +1,13 @@
 import tkinter as tk
 
+def F():
+	resultString.set(resultString1.get())
+	print(resultString.get())
 window = tk.Tk()
-frame_a = tk.Frame(relief = tk.RIDGE, borderwidth = 10)
-frame_b = tk.Frame()
-label_a = tk.Label(master = frame_a, text = "Frame A")
-label_a.pack()
-label_b = tk.Label(master = frame_b, text = "Frame B")
-label_b.pack()
-frame_a.pack()
-frame_b.pack()
+resultString1 = tk.StringVar()
+entry = tk.Entry(textvariable = resultString1)
+entry.pack()
+resultString = tk.StringVar()
+button = tk.Button(window, text = "Ok", command = F)
+button.pack()
 window.mainloop()
