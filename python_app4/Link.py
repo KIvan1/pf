@@ -1,7 +1,6 @@
 import tkinter as tk
 
-def Ask_link():
-	s = ""
+def Ask_link(s):
 	def Link_get():
 		s = link.get()
 		window.destroy()

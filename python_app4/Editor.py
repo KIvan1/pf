@@ -4,7 +4,7 @@ def json_editor(jsonData):
 	def change_data():
 		k = 0
 		for i in jsonData:
-			#jsonData[i] = newData[k].get()
+			jsonData[i] = newData[k].get()
 			k += 1
 	ed_window = tk.Tk()
 	ed_window.title("Json editor")
@@ -30,4 +30,4 @@ def json_editor(jsonData):
 		json_frame[j].pack(fill = tk.X)
 		j += 1
 	ed_window.mainloop()
-	return data
+	return jsonData
