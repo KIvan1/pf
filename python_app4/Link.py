@@ -2,8 +2,9 @@ import tkinter as tk
 
 def Ask_link(s):
 	def Link_get():
-		s = link.get()
+		s.append(link.get())
 		window.destroy()
+
 	window = tk.Tk()
 	window.title("Link")
 	text = tk.Label(text = "Вводите ссылку на json файл")
