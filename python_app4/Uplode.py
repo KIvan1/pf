@@ -2,6 +2,10 @@ import requests
 import json
 
 def fuplode(s):
-	r = requests.get(s)
-	data = json.loads(r.text)
-	return data
+	try:
+		r = requests.get(s)
+		print(r.content)
+		data = json.loads(r.text)
+		return data
+	except requests.exceptions.MissingSchema:
+		return None
