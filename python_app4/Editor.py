@@ -77,8 +77,7 @@ def json_editor(jsonData):
 	parrent_frame = tk.Frame(ed_window)
 	canvas = tk.Canvas(parrent_frame)
 	ed_frame = tk.Frame(parrent_frame)
-	ed_frame.pack(fill = tk.X)
-	scroll = tk.Scrollbar(parrent_frame, command = canvas.yview)
+	scroll = tk.Scrollbar(ed_window, command = canvas.yview)
 	for i in jsonData:
 		json_frame.append(tk.Frame(ed_frame))
 		name.append(tk.Label(json_frame[j], text = i + ': '))
@@ -89,14 +88,13 @@ def json_editor(jsonData):
 		data[j].pack(fill = tk.X)
 		json_frame[j].pack(fill = tk.X)
 		j += 1
-
-	canvas.create_window(0, 0, anchor = 'nw', window = ed_frame)
+	ed_frame.pack(fill = tk.BOTH, side = tk.LEFT)
+	canvas.create_window(0, 0, window = ed_frame)
 	canvas.update_idletasks()
-	canvas.configure(scrollregion = canvas.bbox('all'), 
-                 yscrollcommand = scroll.set)               
-	canvas.pack(fill = tk.BOTH, expand = True, side = tk.LEFT)
+	canvas.configure(scrollregion = canvas.bbox('all'), yscrollcommand = scroll.set)           
+	canvas.pack(fill = tk.BOTH, expand = True)
 	scroll.pack(side = tk.RIGHT, fill = tk.Y)
-	parrent_frame.pack(fill = tk.BOTH)
+	parrent_frame.pack(fill = tk.BOTH, expand = True)
 
 	ed_window.mainloop()
 
