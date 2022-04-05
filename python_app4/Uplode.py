@@ -6,5 +6,6 @@ def fuplode(s):
 		r = requests.get(s)
 		data = json.loads(r.text)
 		return data
-	except (requests.exceptions.MissingSchema, json.decoder.JSONDecodeError):
+	except (requests.exceptions.MissingSchema, json.decoder.JSONDecodeError
+		, requests.exceptions.InvalidSchema):
 		return None

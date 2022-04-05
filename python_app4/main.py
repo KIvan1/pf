@@ -1,5 +1,5 @@
 import Uplode
-#import Data_proc
+import Editor1
 import Link
 import Editor
 import Error
@@ -12,7 +12,7 @@ while True:
 	#s = "http://kappa.cs.petrsu.ru/~dimitrov/info_1/test.json"
 	jsonData = Uplode.fuplode(s[0])
 	if jsonData != None:
-		jsonData = Editor.json_editor(jsonData)
+		jsonData = Editor1.json_editor(jsonData)
 		break
 	else:
 		Error.Error_message_box()
