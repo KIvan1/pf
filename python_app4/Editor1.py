@@ -49,7 +49,7 @@ def json_editor(jsonData):
 			main_text.insert(tk.INSERT, ':')
 
 	ed_window = tk.Tk()
-	ed_window.geometry("300x300")
+	ed_window.geometry("600x300")
 	save_frame = tk.Frame(ed_window)
 	save_as_button = tk.Button(save_frame, text = "Save as", command = save_as)
 	save_as_button.pack(side = tk.LEFT)
