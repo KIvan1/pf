@@ -49,6 +49,7 @@ def json_editor(jsonData):
 			main_text.insert(tk.INSERT, ':')
 
 	ed_window = tk.Tk()
+	ed_window.geometry("300x300")
 	save_frame = tk.Frame(ed_window)
 	save_as_button = tk.Button(save_frame, text = "Save as", command = save_as)
 	save_as_button.pack(side = tk.LEFT)
@@ -57,7 +58,7 @@ def json_editor(jsonData):
 	save_frame.pack(fill = tk.X)
 	ed_frame = tk.Frame(ed_window)
 	scroll = tk.Scrollbar(ed_frame, orient = tk.VERTICAL)
-	main_text = tk.Text(ed_frame, yscrollcommand = scroll.set)
+	main_text = tk.Text(ed_frame, yscrollcommand = scroll.set, wrap = tk.WORD, height = 1000)
 	main_text.insert(1.0, pformat(jsonData, width = main_text['width']))
 	main_text.bind('<Return>', press_enter)
 	main_text.bind('<Control-s>', save_comb)
