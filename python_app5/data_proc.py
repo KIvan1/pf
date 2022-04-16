@@ -11,15 +11,16 @@ def read_data_from_file(file):
 	data = [] # создание список для хранения данных из файла
 	if (os.access(file, os.F_OK) == False):
 		return -1
-	if (os.path.splitext(file) != '.csv'):
-		print(os.path.splitext(file))
-		return 2
 	if (os.access(file, os.R_OK)):
-		with open(file, newline = '') as csvfile: # открытие csv файла
+		with open(file, newline = '', errors = "strict") as csvfile: # открытие csv файла
 			dataReader = csv.reader(csvfile, delimiter = ',') # создание объекта для 
-			print(dataReader)											  # построчной итерации по файлу
+														  # построчной итерации по файлу
+			k = 0;
 			for row in dataReader:
 				data.append(row) # помещение данных в список
+				if (len(data[k]) != 2):
+					return 2
+				k += 1
 			data.pop(0) # первый элеиент - название столбцов,
 		            # удаляем его
 	else: 

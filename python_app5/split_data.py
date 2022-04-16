@@ -8,7 +8,13 @@ def split_data(data, c):
 	                 # разбитой на с-минутные подотрезки
 	i = 0
 	time = c
+
 	for unit in data:
+		try:
+			float(unit[0])
+			int(unit[1])
+		except:
+			return 1
 		if float(unit[0]) <= time: # проверка входит ли элемент в данный подотрезок
 			splitData[i].append(unit[1]) # добавление элемента во вложенный список
 		else:
