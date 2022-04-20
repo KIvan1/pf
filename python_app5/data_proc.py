@@ -12,17 +12,20 @@ def read_data_from_file(file):
 	if (os.access(file, os.F_OK) == False):
 		return -1
 	if (os.access(file, os.R_OK)):
-		with open(file, newline = '', errors = "strict") as csvfile: # открытие csv файла
-			dataReader = csv.reader(csvfile, delimiter = ',') # создание объекта для 
+		try:
+			with open(file, newline = '', errors = "strict") as csvfile: # открытие csv файла
+				dataReader = csv.reader(csvfile, delimiter = ',') # создание объекта для 
 														  # построчной итерации по файлу
-			k = 0;
-			for row in dataReader:
-				data.append(row) # помещение данных в список
-				if (len(data[k]) != 2):
-					return 2
-				k += 1
-			data.pop(0) # первый элеиент - название столбцов,
-		            # удаляем его
+				k = 0;
+				for row in dataReader:
+					data.append(row) # помещение данных в список
+					if (len(data[k]) != 2):
+						return 2
+					k += 1
+				data.pop(0) # первый элеиент - название столбцов,
+		            	# удаляем его
+		except:
+			return 2
 	else: 
 		return 1
 	return data
