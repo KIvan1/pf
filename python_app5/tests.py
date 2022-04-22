@@ -10,7 +10,7 @@ def test_file_exist():
 	assert(res) == -1
 
 def test_file_root():
-	res = data_proc.read_data_from_file('example_root.csv')
+	res = data_proc.read_data_from_file('exampl.csv')
 	assert(res) == 1
 
 def test_is_file_csv():
@@ -35,7 +35,7 @@ def test_split():
 	res = split_data.split_data(data, sp)
 	k = 0
 	for i in res:
-		assert(float(data[k][0]) - float(data[k + len(i) - 1][0])) < sp 
+		assert((float(data[k][0]) - float(data[k + len(i) - 1][0])) < sp)
 		k += len(i) 
 
 def test_count():
@@ -67,8 +67,8 @@ def test_stat():
 	sp_res = data_proc.calculate_statistic(res)
 	k = 0
 	for unit in res:
-		assert(len(unit)) == sp_res[k]['length'] 
-		assert(statistics.mean(float(i) for i in unit)) == sp_res[k]['mean']
-		assert(statistics.mode(unit)) == sp_res[k]['mode']
-		assert(statistics.median(float(i) for i in unit)) == sp_res [k]['median']
+		assert len(unit) == sp_res[k]['length'] 
+		assert statistics.mean(float(i) for i in unit) == sp_res[k]['mean']
+		assert statistics.mode(unit) == sp_res[k]['mode']
+		assert statistics.median(float(i) for i in unit) == sp_res [k]['median']
 		k += 1 
